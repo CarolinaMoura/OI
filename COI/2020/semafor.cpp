@@ -70,15 +70,6 @@ int main()
 
 	scanf("%d%lld%lld%d", &m, &n, &k , &x ) ;
 
-	assert(n >= 0) ;
-
-	if(n == 0)
-	{
-		int lim = (m==1) ? 10 : 100 ;
-		for(int i = 0 ; i < lim ; i++ ) printf("%d\n", i == x ? 1 : 0) ;
-		return 0 ;
-	}
-
 	int lim = (m == 1) ? 6 : 11 ;
 	Matrix findK(lim) ;
 	Matrix findR(lim) ;
@@ -121,30 +112,22 @@ int main()
 
 	vector<ll> dp(lim+1,0LL) ;
 
-	if( k > n )
-	{	
-		for(int i= 0 ; i < lim ; i++ )
-			dp[i] = findR.vec[0][ matDiff[i][x] ] ;
-	}
-	else 
+	findDp = expo( findDp, n/k ) ;
+
+	for(int i = 0 ; i < lim ; i++ ) 
 	{
-		findDp = expo( findDp, n/k ) ;
-
-		for(int i = 0 ; i < lim ; i++ ) 
+		if( n%k == 0 )
 		{
-			if( n%k == 0 )
-			{
-				dp[i] = findDp.vec[x][i] ;
-				continue ;
-			}
+			dp[i] = findDp.vec[x][i] ;
+			continue ;
+		}
 
-			for(int g = 0 ; g < lim ; g++ )
-			{
-				ll toSum = findDp.vec[x][g] * findR.vec[0][ matDiff[i][g] ] ;
-				dp[i] += toSum % MOD ;
+		for(int g = 0 ; g < lim ; g++ )
+		{
+			ll toSum = findDp.vec[x][g] * findR.vec[0][ matDiff[i][g] ] ;
+			dp[i] += toSum % MOD ;
 
-				if( dp[i] >= MOD ) dp[i] -= MOD;
-			}
+			if( dp[i] >= MOD ) dp[i] -= MOD;
 		}
 	}
 
