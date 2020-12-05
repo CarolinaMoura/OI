@@ -127,27 +127,12 @@ int main()
 	int Y = topRight[0].second ;
 
 	auto isSpecial = [&](int x, int y ) { return x == X && y >= Y ; } ;
-	auto hasSomeone = [&](int x, int y  )
-	{
-		auto isInside = [&]( pair<int,int> b, pair<int,int> t , pair<int,int> p )
-		{
-			return b.first < p.first && p.first < t.first && b.second < p.second && p.second < t.second ;
-		} ;
-
-		for(int i = 0 ; i < n ; i++ )
-			if( isInside(bottomLeft[i], topRight[i], make_pair(x,y) ) )
-				return true ;
-
-		return false ;
-	} ;
 
 	for(int x = 0 ; x < keyX ; x++ )
 		for(int y = 0 ; y < keyY ; y++ )
 		{
 
-			if(hasSomeone(x,y) ) continue ;
-
-			if( valid(x+1, y) && !hasSomeone(x+1,y) && allowedHorizontal[x][y] ) 
+			if( valid(x+1, y) && allowedHorizontal[x][y] ) 
 			{
 
 				if( isSpecial(x,y) )
@@ -162,12 +147,12 @@ int main()
 				}
 
 			}
-			if(valid(x,y-1) && !hasSomeone(x,y-1) && allowedVertical[x][y-1] )
+			if(valid(x,y-1) && allowedVertical[x][y-1] )
 			{
 				adj[ getIndex(x,y,0) ].push_back( make_pair(getIndex(x,y-1,0 ), compressY[y] - compressY[y-1]) ) ;
 				adj[ getIndex(x,y,1) ].push_back( make_pair(getIndex(x,y-1,1 ), compressY[y] - compressY[y-1]) ) ;
 			}
-			if( valid(x-1, y) && !hasSomeone(x-1,y) && allowedHorizontal[x-1][y] ) 
+			if( valid(x-1, y) && allowedHorizontal[x-1][y] ) 
 			{
 
 				if(isSpecial(x-1,y) )
@@ -182,7 +167,7 @@ int main()
 				}
 
 			}
-			if( valid(x, y+1) && !hasSomeone(x, y+1) && allowedVertical[x][y] )
+			if( valid(x, y+1) && allowedVertical[x][y] )
 			{
 				adj[ getIndex(x,y,0) ].push_back( make_pair(getIndex(x,y+1,0 ), compressY[y+1] - compressY[y]) ) ;
 				adj[ getIndex(x,y,1) ].push_back( make_pair(getIndex(x,y+1,1 ), compressY[y+1] - compressY[y]) ) ;
