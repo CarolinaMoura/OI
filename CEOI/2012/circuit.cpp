@@ -1,3 +1,21 @@
+/*
+Idea description O(n log n )
+
+-> It passed CSES but not OJ <-
+-> Had to do the most horrible thing ever to pass the last test case <-
+-> My dignity died, indeed <-
+
+If you sort everybody by their polar angle and call the smallest 0 and the largest N-1, 
+every segment from the polygon will cross an interval of polar angles
+
+For every interval of polar angles, only the ones that give the least possible y matter
+(as the polygon is free from self-interceptions)
+
+Then you just have to walk in the segment tree and check if there is interception 
+with the segments that are in the intervals that contain your "polar coordinate"
+
+*/
+
 #include <bits/stdc++.h>
  
 #define sz(x) (int)(x.size())
