@@ -16,7 +16,7 @@ using namespace std ;
 //and is guaranteed that boat number i is going to be chosen
 //For this problem, I had to come up with a little lemma (don't know if it is a well-known fact)
 //(I don't do Math olympiads :P)
-//Link to the "proof": https://pasteboard.co/JIrUdPL.jpg
+//Link to the "proof": https://pasteboard.co/JLhIM6E.jpg
 //To find C(x+y, y) quickly, I did a trick: 
 //C(x+y,y) = C(x+y-1,y-1) * (x+y)/y
 //Because the inverses of 1, 2, ..., y are easily calculated in O(N)
