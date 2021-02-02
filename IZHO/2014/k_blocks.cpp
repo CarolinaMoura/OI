@@ -7,7 +7,7 @@
 #define pii pair<int,int> 
 
 const int MAXN = 1e5+10 ;
-const ll inf = 1e18+10 ;
+const ll inf = 1e15+10LL ;
 
 using namespace std ;
 
