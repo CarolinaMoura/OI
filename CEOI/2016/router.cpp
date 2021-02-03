@@ -50,7 +50,6 @@ void solve()
 
 	cin >> n >> m >> p ;
 
-	//I'm gonna divide in 100 blocks
 	cur_node = 2*n ;
 
 	vector<int> v_in , v_out ;
