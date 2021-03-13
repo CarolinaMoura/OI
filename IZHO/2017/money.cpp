@@ -1,7 +1,3 @@
-/*
-I haven't submitted this yet
-You should do it when no one will ever suspect you are a stalker
-*/
 #include <bits/stdc++.h>
  
 #define ll long long
