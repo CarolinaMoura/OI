@@ -85,22 +85,6 @@ bool bfsYou(pair<int,int> S, pair<int,int> T ){
  
 }
  
-void debug(){
-	cout << "Componentes horizontais: \n" ;
-	for(int i = 0 ; i < N ; i++ , cout << endl )
-		for(int j = 0 ; j < M ; j++ ) cout << horGroup[i][j] <<" " ;
-	cout << endl ;
- 
-	cout << "Componentes verticais: \n" ;
-	for(int i = 0 ; i < N ; i++ , cout << endl )
-		for(int j = 0 ; j < M ; j++ ) cout << vertGroup[i][j] <<" " ;
-	cout << endl ;
- 
-	cout << "Distancias: \n" ;
-	for(int i = 1 ; i <= Node ; i++ ) cout << distGroups[i] <<" " ;
-	cout << endl ;
-}
- 
 int main(){
 	ios_base::sync_with_stdio(false) ;
 	cin.tie(0) ;
@@ -144,5 +128,4 @@ int main(){
 	bfsViking(V) ;
 	cout << ( bfsYou(S,T) ? "YES" : "NO" ) << "\n" ;
  
-//	debug() ;
 }
