@@ -1,2 +1,2 @@
 # OI
-Soluções para problemas de OIs (Olimpíadas de Informática).
+Solutions to OI (Olympiads in Informatics) problems. 
